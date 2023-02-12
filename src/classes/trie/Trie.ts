@@ -84,4 +84,68 @@ export default class Trie {
 
         return result
     }
+
+    public depthFirstSearch = (value: string): Trie | undefined => {
+        if (value === this.value) {
+            return this
+        }
+        if (this.children.size > 0) {
+            for (const [_, value] of this.children) {
+                const result = value.depthFirstSearch(value.value)
+                if (result) {
+                    return result
+                }
+            }
+        }
+    }
+
+    public breadthFirstSearch = (value: string): Trie | undefined => {
+        if (value === this.value) {
+            return this
+        }
+        if (this.children && this.children.size > 0) {
+            return this._breadthFirstSearch(
+                value,
+                Array.from(this.children.values())
+            )
+        }
+    }
+    private _breadthFirstSearch = (
+        value: String,
+        queue: Trie[]
+    ): Trie | undefined => {
+        const newQueue = []
+        while (queue.length > 0) {
+            const current = queue.pop()
+            if (current?.value === value) {
+                return current
+            }
+            if (current?.children && current.children.size > 0) {
+                const children = this.children.values()
+                let newChild = children.next()
+                while (newChild.value) {
+                    newQueue.push(newChild.value)
+                    newChild = children.next()
+                }
+            }
+        }
+        return this._breadthFirstSearch(value, newQueue)
+    }
+
+    public firstMatch = (value?: string, method: 'bfs' | 'dfs' = 'bfs') => {
+        if (!value || value.length !== 1) {
+            throw new RangeError(
+                `${value} is not an accepted value, expecting only 1 character`
+            )
+        }
+        if ('bfs' === method) {
+            return this.breadthFirstSearch(value)
+        } else if ('dfs' === method) {
+            return this.depthFirstSearch(value)
+        } else {
+            throw new RangeError(
+                `${method} is not a valid method, expected values are ['bfs', 'dfs']`
+            )
+        }
+    }
 }
