@@ -7,6 +7,7 @@ export default class Trie {
     readonly children: Map<string, Trie> = new Map()
     readonly parent?: Trie
     readonly level: number = 1
+
     /**
      *
      * @param value Current value of the node
@@ -110,6 +111,7 @@ export default class Trie {
             )
         }
     }
+
     private _breadthFirstSearch = (
         value: String,
         queue: Trie[]
