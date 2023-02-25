@@ -12,16 +12,8 @@ export class Trie extends jspb.Message {
     getDetail(): Detail | undefined
     setDetail(value?: Detail): void
 
-    clearChildrenList(): void
-    getChildrenList(): Array<Trie>
-    setChildrenList(value: Array<Trie>): void
-    addChildren(value?: Trie, index?: number): Trie
-
-    hasParent(): boolean
-    clearParent(): void
-    getParent(): Trie | undefined
-    setParent(value?: Trie): void
-
+    getChildrenMap(): jspb.Map<string, Trie>
+    clearChildrenMap(): void
     getLevel(): number
     setLevel(value: number): void
 
@@ -47,8 +39,7 @@ export namespace Trie {
     export type AsObject = {
         value: string
         detail?: Detail.AsObject
-        childrenList: Array<Trie.AsObject>
-        parent?: Trie.AsObject
+        childrenMap: Array<[string, Trie.AsObject]>
         level: number
     }
 }

@@ -3,9 +3,8 @@ syntax = "proto3";
 message Trie {
     string value = 1; // required
     optional Detail detail = 2;
-    repeated Trie children = 3;
-    optional Trie parent = 4;
-    int32 level = 5;
+    map<string, Trie> children = 3;
+    int32 level = 4;
 }
 
 message Detail {

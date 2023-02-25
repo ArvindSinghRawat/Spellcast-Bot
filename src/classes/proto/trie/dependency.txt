@@ -1,0 +1,1 @@
+src/classes/proto/trie/trie_pb.d.ts: docs/schemas/trie.proto
