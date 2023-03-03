@@ -88,7 +88,13 @@ export interface WordTypeMap {
     NOUN: 0
     ADJECTIVE: 1
     VERB: 2
-    ABBREVIATION: 3
+    ADVERB: 3
+    PRONOUN: 4
+    CONJUNCTION: 5
+    PREPOSITION: 6
+    INTERJECTION: 7
+    NUMBER: 8
+    ABBREVIATION: 9
 }
 
 export const WordType: WordTypeMap
