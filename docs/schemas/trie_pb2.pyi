@@ -6,8 +6,14 @@ from typing import ClassVar as _ClassVar, Mapping as _Mapping, Optional as _Opti
 
 ABBREVIATION: WordType
 ADJECTIVE: WordType
+ADVERB: WordType
+CONJUNCTION: WordType
 DESCRIPTOR: _descriptor.FileDescriptor
+INTERJECTION: WordType
 NOUN: WordType
+NUMBER: WordType
+PREPOSITION: WordType
+PRONOUN: WordType
 VERB: WordType
 
 class Detail(_message.Message):
