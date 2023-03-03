@@ -4,10 +4,10 @@
 import * as jspb from 'google-protobuf'
 
 export class Trie extends jspb.Message {
-    hasDetail(): boolean
-    clearDetail(): void
-    getDetail(): Detail | undefined
-    setDetail(value?: Detail): void
+    clearDetailsList(): void
+    getDetailsList(): Array<Detail>
+    setDetailsList(value: Array<Detail>): void
+    addDetails(value?: Detail, index?: number): Detail
 
     getChildrenMap(): jspb.Map<string, Trie>
     clearChildrenMap(): void
@@ -34,13 +34,15 @@ export class Trie extends jspb.Message {
 
 export namespace Trie {
     export type AsObject = {
-        detail?: Detail.AsObject
+        detailsList: Array<Detail.AsObject>
         childrenMap: Array<[string, Trie.AsObject]>
         level: number
     }
 }
 
 export class Detail extends jspb.Message {
+    hasMeaning(): boolean
+    clearMeaning(): void
     getMeaning(): string
     setMeaning(value: string): void
 

@@ -2,8 +2,8 @@ syntax = "proto3";
 
 // Message for Trie details
 message Trie {
-    // Node's details in form of a object, if this is null it means this node is not a end-letter
-    optional Detail detail = 1;
+    // Node's details in form of an array of objects, if this is null it means this node is not a end-letter
+    repeated Detail details = 1;
     // Node's children as a map, where key's child node's value, and child itself is the node
     map<string, Trie> children = 2;
     // Integer level start from 0 for the root, and then keeps on increasing
@@ -13,7 +13,7 @@ message Trie {
 // Message for the details of the Node
 message Detail {
     // Raw text for the meaning of the word that the node represents
-    string meaning = 1;
+    optional string meaning = 1;
     // Type of the word in for of grammar's part of speech
     optional WordType type = 2;
     // Refers to the priority of this meaning
