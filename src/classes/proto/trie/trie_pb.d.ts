@@ -4,9 +4,6 @@
 import * as jspb from 'google-protobuf'
 
 export class Trie extends jspb.Message {
-    getValue(): string
-    setValue(value: string): void
-
     hasDetail(): boolean
     clearDetail(): void
     getDetail(): Detail | undefined
@@ -37,7 +34,6 @@ export class Trie extends jspb.Message {
 
 export namespace Trie {
     export type AsObject = {
-        value: string
         detail?: Detail.AsObject
         childrenMap: Array<[string, Trie.AsObject]>
         level: number

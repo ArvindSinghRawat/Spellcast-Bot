@@ -2,14 +2,12 @@ syntax = "proto3";
 
 // Message for Trie details
 message Trie {
-    // Node's identifier as a single character
-    string value = 1; // required
-    // Node's details in form of a object
-    optional Detail detail = 2;
+    // Node's details in form of a object, if this is null it means this node is not a end-letter
+    optional Detail detail = 1;
     // Node's children as a map, where key's child node's value, and child itself is the node
-    map<string, Trie> children = 3;
+    map<string, Trie> children = 2;
     // Integer level start from 0 for the root, and then keeps on increasing
-    int32 level = 4;
+    int32 level = 3;
 }
 
 // Message for the details of the Node
